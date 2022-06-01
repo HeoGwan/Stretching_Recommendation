@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/anterior_pelvic_tilt.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/flat_shoulder.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/forward_neck.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/image_background.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/neck.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/normal_neck.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/normal_pelvic_tilt.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/normal_shoulder.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/posterior_pelvic_tilt.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/select_radio_button.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/slope_shoulder.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/square_border_black.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/squre_border_black.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/drawable/straight_neck.xml" value="0.3075" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/layout/result_activity.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/msi/Desktop/Class_Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3075" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

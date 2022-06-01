@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/neckStretchingInfo"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="목"/>
+
+            <ImageView
+                android:id="@+id/neckStretchingImage"
+                android:layout_width="330dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/neckStretchingInfo"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@+id/shoulderStretchingInfo"
+                android:background="@drawable/image_background" />
+
+            <TextView
+                android:id="@+id/shoulderStretchingInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/neckStretchingImage"
+                android:layout_alignLeft="@+id/neckStretchingInfo"
+                android:text="어깨" />
+
+            <ImageView
+                android:id="@+id/shoulderStretchingImage"
+                android:layout_width="330dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/shoulderStretchingInfo"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@+id/shoulderStretchingInfo"
+                android:background="@drawable/image_background" />
+
+            <TextView
+                android:id="@+id/backStretchingInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shoulderStretchingImage"
+                android:layout_alignLeft="@id/shoulderStretchingInfo"
+                android:text="허리" />
+
+            <ImageView
+                android:id="@+id/backStretchingImage"
+                android:layout_width="330dp"
+                android:layout_height="200dp"
+                android:layout_below="@+id/backStretchingInfo"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@id/backStretchingInfo"
+                android:background="@drawable/image_background" />
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/backStretchingImage"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:text="처음으로" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

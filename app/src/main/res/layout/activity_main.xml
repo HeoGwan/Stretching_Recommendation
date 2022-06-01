@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp">
+
+
+    <!--     성별 -->
+    <LinearLayout
+        android:layout_width="141dp"
+        android:layout_height="32dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="성별" />
+
+        <RadioGroup
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="남"/>
+
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여"/>
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+    <!--    키-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="키"/>
+
+        <EditText
+            android:id="@+id/height"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cm"/>
+
+    </LinearLayout>
+
+
+    <!--    체중-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="체중"/>
+
+        <EditText
+            android:id="@+id/weight"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kg"/>
+
+    </LinearLayout>
+
+
+    <!--    체형 선택-->
+    <TextView
+        android:id="@+id/selectForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="체형 선택" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/image_background">
+
+
+            <!-- 체형 이미지 -->
+            <ImageView
+                android:id="@+id/showForm"
+                android:layout_width="200dp"
+                android:layout_height="300dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/avg_avg" />
+
+
+            <!-- 상체 -->
+            <RadioGroup
+                android:id="@+id/selectUpperBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/showForm"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="상체" />
+
+                <RadioButton
+                    android:id="@+id/upperBodyLong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:text="길다"
+                    android:textSize="20dp" />
+
+                <RadioButton
+                    android:id="@+id/upperBodyShort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:text="짧다"
+                    android:textSize="20dp" />
+
+                <RadioButton
+                    android:id="@+id/upperBodyAverage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:text="평균"
+                    android:textSize="20dp" />
+
+            </RadioGroup>
+
+
+            <!-- 하체 -->
+            <RadioGroup
+                android:id="@+id/selectLowerBody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/selectUpperBody"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="하체"/>
+
+                <RadioButton
+                    android:id="@+id/lowerBodyLong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="길다"
+                    android:textSize="20dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_gravity="center"/>
+
+                <RadioButton
+                    android:id="@+id/lowerBodyShort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="짧다"
+                    android:textSize="20dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_gravity="center"/>
+
+                <RadioButton
+                    android:id="@+id/lowerBodyAverage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="평균"
+                    android:textSize="20dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_gravity="center"/>
+
+            </RadioGroup>
+
+
+            <!-- 목 -->
+            <LinearLayout
+                android:id="@+id/noticeSelectNeck"
+                android:layout_below="@+id/selectLowerBody"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="목"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/selectNeck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/noticeSelectNeck"
+                android:layout_toRightOf="@+id/noticeSelectNeck"
+                android:layout_marginLeft="-20dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/normalNeck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_marginRight="-20dp"
+                    android:layout_marginTop="-10dp"/>
+                <LinearLayout
+                    android:id="@+id/normalNeckInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/normal_neck_pic"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:layout_marginTop="-10dp"
+                        android:text="정상"/>
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/straightNeck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="-20dp"/>
+                <LinearLayout
+                    android:id="@+id/straightNeckInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/straight_neck_pic"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:layout_marginTop="-10dp"
+                        android:text="일자목"/>
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/forwardNeck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="-20dp"/>
+                <LinearLayout
+                    android:id="@+id/forwardNeckInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/forward_neck_pic"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:layout_marginTop="-10dp"
+                        android:text="거북목"/>
+                </LinearLayout>
+
+            </RadioGroup>
+
+
+            <!-- 어깨 -->
+            <LinearLayout
+                android:id="@+id/noticeSelectShoulder"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/selectNeck"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="어깨"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/selectShoulder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/noticeSelectShoulder"
+                android:layout_toRightOf="@+id/noticeSelectShoulder"
+                android:layout_marginLeft="-20dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/flatShoulder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="-20dp"/>
+                <LinearLayout
+                    android:id="@+id/flatShoulderInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/flat_shoulder_pic"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:layout_marginTop="-20dp"
+                        android:text="상견"/>
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/normalShoulder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="-20dp"/>
+                <LinearLayout
+                    android:id="@+id/normalShoulderInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/normal_shoulder_pic"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:layout_marginTop="-20dp"
+                        android:text="중견"/>
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/slopeShoulder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="-20dp"/>
+                <LinearLayout
+                    android:id="@+id/slopeShoulderInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/slope_shoulder_pic"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:layout_marginTop="-20dp"
+                        android:text="하견"/>
+                </LinearLayout>
+
+            </RadioGroup>
+
+
+            <!-- 허리 -->
+            <LinearLayout
+                android:id="@+id/noticeSelectBack"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/selectShoulder"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="허리"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/selectBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/noticeSelectBack"
+                android:layout_toRightOf="@+id/noticeSelectBack"
+                android:layout_marginLeft="-20dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/normalPelvicTilt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="-20dp"/>
+                <LinearLayout
+                    android:id="@+id/normalPelvicTiltInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/normal_pelvic_tilt_pic"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:layout_marginTop="5dp"
+                        android:text="정상"/>
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/anteriorPelvicTilt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="-20dp"/>
+                <LinearLayout
+                    android:id="@+id/anteriorPelvicTiltInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/anterior_pelvic_tilt_pic"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:layout_marginTop="5dp"
+                        android:text="전방경사"/>
+                </LinearLayout>
+
+                <RadioButton
+                    android:id="@+id/posteriorPelvicTilt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="-20dp"/>
+                <LinearLayout
+                    android:id="@+id/posteriorPelvicTiltInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/posterior_pelvic_tilt_pic"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:layout_marginTop="5dp"
+                        android:text="후방경사"/>
+                </LinearLayout>
+
+            </RadioGroup>
+
+
+            <!-- 확인 버튼 -->
+            <Button
+                android:id="@+id/btnOK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/selectBack"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingVertical="10dp"
+                android:text="확인" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</LinearLayout>

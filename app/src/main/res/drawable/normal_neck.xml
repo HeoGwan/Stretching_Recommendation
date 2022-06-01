@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <stroke android:width="3dp" android:color="#f00"/>
+                    <corners android:radius="0dp"/>
+                </shape>
+            </item>
+
+            <item android:drawable="@drawable/normal_neck_pic"/>
+        </layer-list>
+    </item>
+    <item android:state_checked="false" android:drawable="@drawable/normal_neck_pic">
+    </item>
+</selector>
