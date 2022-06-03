@@ -32,7 +32,8 @@
                 android:id="@+id/male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="남"/>
+                android:text="남"
+                android:checked="true"/>
 
             <RadioButton
                 android:id="@+id/female"
@@ -59,7 +60,9 @@
         <EditText
             android:id="@+id/height"
             android:layout_width="80dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:hint="0.0"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,7 +85,9 @@
         <EditText
             android:id="@+id/weight"
             android:layout_width="80dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:hint="0.0"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -147,7 +152,7 @@
                     android:scaleX="0.8"
                     android:scaleY="0.8"
                     android:text="길다"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"/>
 
                 <RadioButton
                     android:id="@+id/upperBodyShort"
@@ -169,7 +174,8 @@
                     android:scaleX="0.8"
                     android:scaleY="0.8"
                     android:text="평균"
-                    android:textSize="20dp" />
+                    android:textSize="20dp"
+                    android:checked="true"/>
 
             </RadioGroup>
 
@@ -221,7 +227,8 @@
                     android:textSize="20dp"
                     android:scaleX="0.8"
                     android:scaleY="0.8"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:checked="true"/>
 
             </RadioGroup>
 
@@ -229,9 +236,9 @@
             <!-- 목 -->
             <LinearLayout
                 android:id="@+id/noticeSelectNeck"
-                android:layout_below="@+id/selectLowerBody"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
+                android:layout_below="@+id/selectLowerBody"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
@@ -254,6 +261,7 @@
                 android:layout_marginLeft="-20dp"
                 android:orientation="horizontal">
 
+<!--                정상-->
                 <RadioButton
                     android:id="@+id/normalNeck"
                     android:layout_width="wrap_content"
@@ -261,7 +269,8 @@
                     android:scaleX="0.8"
                     android:scaleY="0.8"
                     android:layout_marginRight="-20dp"
-                    android:layout_marginTop="-10dp"/>
+                    android:layout_marginTop="-10dp"
+                    android:checked="true"/>
                 <LinearLayout
                     android:id="@+id/normalNeckInfo"
                     android:layout_width="wrap_content"
@@ -281,6 +290,7 @@
                         android:text="정상"/>
                 </LinearLayout>
 
+<!--                일자목-->
                 <RadioButton
                     android:id="@+id/straightNeck"
                     android:layout_width="wrap_content"
@@ -308,6 +318,7 @@
                         android:text="일자목"/>
                 </LinearLayout>
 
+<!--                거북목-->
                 <RadioButton
                     android:id="@+id/forwardNeck"
                     android:layout_width="wrap_content"
@@ -366,6 +377,7 @@
                 android:layout_marginLeft="-20dp"
                 android:orientation="horizontal">
 
+<!--                상견-->
                 <RadioButton
                     android:id="@+id/flatShoulder"
                     android:layout_width="wrap_content"
@@ -373,7 +385,8 @@
                     android:scaleX="0.8"
                     android:scaleY="0.8"
                     android:layout_marginTop="-10dp"
-                    android:layout_marginRight="-20dp"/>
+                    android:layout_marginRight="-20dp"
+                    android:checked="true"/>
                 <LinearLayout
                     android:id="@+id/flatShoulderInfo"
                     android:layout_width="wrap_content"
@@ -393,6 +406,7 @@
                         android:text="상견"/>
                 </LinearLayout>
 
+<!--                중견-->
                 <RadioButton
                     android:id="@+id/normalShoulder"
                     android:layout_width="wrap_content"
@@ -420,6 +434,7 @@
                         android:text="중견"/>
                 </LinearLayout>
 
+<!--                하견-->
                 <RadioButton
                     android:id="@+id/slopeShoulder"
                     android:layout_width="wrap_content"
@@ -477,6 +492,7 @@
                 android:layout_marginLeft="-20dp"
                 android:orientation="horizontal">
 
+<!--                정상-->
                 <RadioButton
                     android:id="@+id/normalPelvicTilt"
                     android:layout_width="wrap_content"
@@ -484,7 +500,8 @@
                     android:scaleX="0.8"
                     android:scaleY="0.8"
                     android:layout_marginTop="-10dp"
-                    android:layout_marginRight="-20dp"/>
+                    android:layout_marginRight="-20dp"
+                    android:checked="true"/>
                 <LinearLayout
                     android:id="@+id/normalPelvicTiltInfo"
                     android:layout_width="wrap_content"
@@ -504,6 +521,7 @@
                         android:text="정상"/>
                 </LinearLayout>
 
+<!--                전방경사-->
                 <RadioButton
                     android:id="@+id/anteriorPelvicTilt"
                     android:layout_width="wrap_content"
@@ -531,6 +549,7 @@
                         android:text="전방경사"/>
                 </LinearLayout>
 
+<!--                후방경사-->
                 <RadioButton
                     android:id="@+id/posteriorPelvicTilt"
                     android:layout_width="wrap_content"

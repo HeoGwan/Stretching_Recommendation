@@ -3,7 +3,9 @@ package com.example.class_project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,26 +14,78 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class MainActivity extends AppCompatActivity {
 
     public enum Form {
-        LONG, SHORT, AVERAGE
+        LONG, SHORT, AVERAGE;
+
+        public static int getFormID(String id, String value) {
+            if (value.equals(AVERAGE.name())) {
+                return (id.equals("upperBody")) ? R.id.upperBodyAverage : R.id.lowerBodyAverage;
+            } else if (value.equals(SHORT.name())) {
+                return (id.equals("upperBody")) ? R.id.upperBodyShort : R.id.lowerBodyShort;
+            } else {
+                return (id.equals("upperBody")) ? R.id.upperBodyLong : R.id.lowerBodyLong;
+            }
+        }
     }
 
     public enum Gender {
-        MALE, FEMALE
+        MALE, FEMALE;
+
+        public static int getGenderID(String value) {
+            if (value.equals(MALE.name())) {
+                return R.id.male;
+            } else {
+                return R.id.female;
+            }
+        }
     }
 
     public enum Neck {
-        NORMAL, STRAIGHT, FORWARD
+        NORMAL, STRAIGHT, FORWARD;
+
+        public static int getNeckID(String value) {
+            if (value.equals(NORMAL.name())) {
+                return R.id.normalNeck;
+            } else if (value.equals(STRAIGHT.name())) {
+                return R.id.straightNeck;
+            } else {
+                return R.id.forwardNeck;
+            }
+        }
     }
 
     public enum Shoulder {
-        NORMAL, FLAT, SLOPE
+        NORMAL, FLAT, SLOPE;
+
+        public static int getShoulderID(String value) {
+            if (value.equals(NORMAL.name())) {
+                return R.id.normalShoulder;
+            } else if (value.equals(FLAT.name())) {
+                return R.id.flatShoulder;
+            } else {
+                return R.id.slopeShoulder;
+            }
+        }
     }
 
     public enum Back {
-        NORMAL, ANTERIOR, POSTERIOR
+        NORMAL, ANTERIOR, POSTERIOR;
+
+        public static int getBackID(String value) {
+            if (value.equals(NORMAL.name())) {
+                return R.id.normalPelvicTilt;
+            } else if (value.equals(ANTERIOR.name())) {
+                return R.id.anteriorPelvicTilt;
+            } else {
+                return R.id.posteriorPelvicTilt;
+            }
+        }
     }
 
     Gender gender;
@@ -41,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     Shoulder shoulder;
     Back back;
 
-    Form upperBody = Form.AVERAGE, lowerBody = Form.AVERAGE;
+    Form upperBody, lowerBody;
 
     ImageView showForm;
 
@@ -62,6 +116,9 @@ public class MainActivity extends AppCompatActivity {
     Integer[] RdoBtnInfoIDs = {R.id.normalNeckInfo, R.id.straightNeckInfo, R.id.forwardNeckInfo,
                     R.id.flatShoulderInfo, R.id.normalShoulderInfo, R.id.slopeShoulderInfo,
                     R.id.normalPelvicTiltInfo, R.id.anteriorPelvicTiltInfo, R.id.posteriorPelvicTiltInfo};
+
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
 
     public void ShowForm() {
         if (upperBody == Form.LONG) {
@@ -91,6 +148,138 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void setPrevData() {
+        // 데이터 가져오기
+        String savedKey;
+        String savedValue;
+        Map<String, ?> values = pref.getAll();
+
+        for (Map.Entry<String, ?> value: values.entrySet()) {
+            savedKey = value.getKey();
+            savedValue = value.getValue().toString();
+            switch(savedKey) {
+                case "height":
+                    getHeight.setText(savedValue);
+                    break;
+                case "weight":
+                    getWeight.setText(savedValue);
+                    break;
+                case "gender":
+                    selectGender.check(Gender.getGenderID(savedValue));
+                    break;
+                case "upperBody":
+                    try {
+                        selectUpperBody.check(Form.getFormID(savedKey, savedValue));
+                    } catch (Exception e) {
+                        Log.d("setPrevData(upperBody): ", e.toString());
+                    }
+                    break;
+                case "lowerBody":
+                    try {
+                        selectLowerBody.check(Form.getFormID(savedKey, savedValue));
+                    } catch (Exception e) {
+                        Log.d("setPrevData(lowerBody): ", e.toString());
+                    }
+                    break;
+                case "neck":
+                    selectNeck.check(Neck.getNeckID(savedValue));
+                    break;
+                case "shoulder":
+                    selectShoulder.check(Shoulder.getShoulderID(savedValue));
+                    break;
+                case "back":
+                    selectBack.check(Back.getBackID(savedValue));
+                    break;
+                default:
+                    Log.d("setPrevData", savedKey + ' ' + savedValue);
+            }
+        }
+        ShowForm();
+    }
+
+    public void getSelectedData() {
+        // 성별 가져오기
+        switch(selectGender.getCheckedRadioButtonId()) {
+            case R.id.male:
+                gender = Gender.MALE;
+                break;
+            case R.id.female:
+                gender = Gender.FEMALE;
+                break;
+        }
+
+        // 키, 체중 가져오기
+        try {
+            weight = Float.parseFloat(getWeight.getText().toString());
+            height = Float.parseFloat(getHeight.getText().toString());
+        } catch (Exception e) {
+            weight = 0.0f;
+            height = 0.0f;
+        }
+
+        // 상체, 하제 가져오기
+        switch(selectUpperBody.getCheckedRadioButtonId()) {
+            case R.id.upperBodyAverage:
+                upperBody = Form.AVERAGE;
+                break;
+            case R.id.upperBodyShort:
+                upperBody = Form.SHORT;
+                break;
+            case R.id.upperBodyLong:
+                upperBody = Form.LONG;
+                break;
+        }
+
+        switch(selectLowerBody.getCheckedRadioButtonId()) {
+            case R.id.lowerBodyAverage:
+                lowerBody = Form.AVERAGE;
+                break;
+            case R.id.lowerBodyShort:
+                lowerBody = Form.SHORT;
+                break;
+            case R.id.lowerBodyLong:
+                lowerBody = Form.LONG;
+                break;
+        }
+
+        // 체형 가져오기
+        switch(selectNeck.getCheckedRadioButtonId()) {
+            case R.id.normalNeck:
+                neck = Neck.NORMAL;
+                break;
+            case R.id.straightNeck:
+                neck = Neck.STRAIGHT;
+                break;
+            case R.id.forwardNeck:
+                neck = Neck.FORWARD;
+                break;
+        }
+
+        switch(selectShoulder.getCheckedRadioButtonId()) {
+            case R.id.normalShoulder:
+                shoulder = Shoulder.NORMAL;
+                break;
+            case R.id.flatShoulder:
+                shoulder = Shoulder.FLAT;
+                break;
+            case R.id.slopeShoulder:
+                shoulder = Shoulder.SLOPE;
+                break;
+        }
+
+        switch(selectBack.getCheckedRadioButtonId()) {
+            case R.id.normalPelvicTilt:
+                back = Back.NORMAL;
+                break;
+            case R.id.anteriorPelvicTilt:
+                back = Back.ANTERIOR;
+                break;
+            case R.id.posteriorPelvicTilt:
+                back = Back.POSTERIOR;
+                break;
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,7 +300,7 @@ public class MainActivity extends AppCompatActivity {
         selectShoulder = (RadioGroup) findViewById(R.id.selectShoulder);
         selectBack = (RadioGroup) findViewById(R.id.selectBack);
 
-        // 체형 선택 라디오 버튼 초기화
+        // 목, 어깨, 허리정보 초기화
         for (int i = 0; i < RdoBtnIDs.length; ++i) {
             int index = i;
             RdoBtns[index] = (RadioButton) findViewById(RdoBtnIDs[index]);
@@ -130,6 +319,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+        pref = getSharedPreferences("pref", MODE_PRIVATE);
+        editor = pref.edit();
+        setPrevData();
+        getSelectedData();
+
+//        editor.clear();
+//        editor.commit();
 
         selectUpperBody.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -150,6 +347,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         selectLowerBody.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -169,6 +367,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -179,24 +378,8 @@ public class MainActivity extends AppCompatActivity {
                 // 성별과 키, 체중으로 비만도 계산
                 // 비만도와 체형을 기반으로 스트레칭 추천
 
-                // 성별 가져오기
-                switch(selectGender.getCheckedRadioButtonId()) {
-                    case R.id.male:
-                        gender = Gender.MALE;
-                        break;
-                    case R.id.female:
-                        gender = Gender.FEMALE;
-                        break;
-                }
-
-                // 키, 체중 가져오기
-                try {
-                    weight = Float.parseFloat(getWeight.getText().toString());
-                    height = Float.parseFloat(getHeight.getText().toString());
-                } catch (Exception e) {
-                    weight = 1.0f;
-                    height = 1.0f;
-                }
+                // 입력 값 가져오기
+                getSelectedData();
 
                 // 비만도 계산
                 // bmi
@@ -216,6 +399,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     bmi = weight / standardWeight * 100;
                 } catch (Exception e) {
+                    Log.d("bmi: ", e.toString());
                     bmi = 0.0f;
                 }
 
@@ -234,46 +418,20 @@ public class MainActivity extends AppCompatActivity {
                     broca = (height - 100) * 1.0;
                 }
 
-
-                // 체형 가져오기
-                switch(selectNeck.getCheckedRadioButtonId()) {
-                    case R.id.normalNeck:
-                        neck = Neck.NORMAL;
-                        break;
-                    case R.id.straightNeck:
-                        neck = Neck.STRAIGHT;
-                        break;
-                    case R.id.forwardNeck:
-                        neck = Neck.FORWARD;
-                        break;
-                }
-
-                switch(selectShoulder.getCheckedRadioButtonId()) {
-                    case R.id.normalShoulder:
-                        shoulder = Shoulder.NORMAL;
-                        break;
-                    case R.id.flatShoulder:
-                        shoulder = Shoulder.FLAT;
-                        break;
-                    case R.id.slopeShoulder:
-                        shoulder = Shoulder.SLOPE;
-                        break;
-                }
-
-                switch(selectBack.getCheckedRadioButtonId()) {
-                    case R.id.normalPelvicTilt:
-                        back = Back.NORMAL;
-                        break;
-                    case R.id.anteriorPelvicTilt:
-                        back = Back.ANTERIOR;
-                        break;
-                    case R.id.posteriorPelvicTilt:
-                        back = Back.POSTERIOR;
-                        break;
-                }
-
                 // 비만도와 체형을 기반으로 스트레칭 추천
-                
+
+
+                // 입력한 데이터 저장
+                editor.putFloat("weight", weight);
+                editor.putFloat("height", height);
+                editor.putString("gender", gender.name());
+                editor.putString("upperBody", upperBody.name());
+                editor.putString("lowerBody", lowerBody.name());
+                editor.putString("neck", neck.name());
+                editor.putString("shoulder", shoulder.name());
+                editor.putString("back", back.name());
+                editor.commit();
+
                 
                 // 결과 화면으로 이동
                 Intent result = new Intent(getApplicationContext(), ResultActivity.class);
