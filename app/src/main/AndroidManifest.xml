@@ -20,6 +20,7 @@
         </activity>
 
         <activity android:name=".ResultActivity"/>
+        <activity android:name=".SelectActivity"/>
     </application>
 
 </manifest>
