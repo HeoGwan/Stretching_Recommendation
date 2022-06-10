@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="도움말">
+    </TextView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50dp"
+                android:text="상견"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+            </TextView>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:src="@drawable/flat_shoulder_pic"
+            android:layout_gravity="center">
+        </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:text="정상적인 쇄골위 위치를 보통  5도라고 말한다. 이 위치보다 5도 더 높은 체형을 상견이라한다.">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50dp"
+                android:text="중견"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+            </TextView>
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:src="@drawable/normal_shoulder_pic"
+                android:layout_gravity="center">
+            </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:text="보통 정상적인 쇄골의 위치를 5도라고 한다.">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50dp"
+                android:text="하견"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+            </TextView>
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:src="@drawable/slope_shoulder_pic"
+                android:layout_gravity="center">
+            </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:text="어깨 상견 중견 하견 기준 정상 위치보다 5도 더 낮은 위치를 하견이라고 한다.  ">
+            </TextView>
+
+            <Button
+                android:id="@+id/closePopup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="되돌아가기"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

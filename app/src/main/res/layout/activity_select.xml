@@ -261,6 +261,13 @@
                 android:layout_marginLeft="-20dp"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/neckInfo"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/question_mark"></ImageView>
+
                 <!--                정상-->
                 <RadioButton
                     android:id="@+id/normalNeck"
@@ -377,6 +384,13 @@
                 android:layout_marginLeft="-20dp"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/shoulderInfo"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/question_mark"></ImageView>
+
                 <!--                상견-->
                 <RadioButton
                     android:id="@+id/flatShoulder"
@@ -491,6 +505,13 @@
                 android:layout_toRightOf="@+id/noticeSelectBack"
                 android:layout_marginLeft="-20dp"
                 android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/backInfo"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/question_mark"></ImageView>
 
                 <!--                정상-->
                 <RadioButton

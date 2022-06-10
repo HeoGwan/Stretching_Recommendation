@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="도움말">
+    </TextView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50dp"
+                android:text="정상"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+            </TextView>
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:src="@drawable/normal_neck_pic"
+                android:layout_gravity="center">
+            </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:text="정상적인 목뼈의 형태는 C 자 모양의 커브로 되어있다.">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50dp"
+                android:text="일자목"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+            </TextView>
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:src="@drawable/straight_neck_pic"
+                android:layout_gravity="center">
+            </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:text="목 척추가 정상적인 배열을 벗어나 일자가 된것을 일자목       증후군 이라고 한다.">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50dp"
+                android:text="거북목"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+            </TextView>
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:src="@drawable/forward_neck"
+                android:layout_gravity="center">
+            </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:text="일자목에서 그보다 더 앞으로 돌출된 형태를 거북목이라 합니다. 거북목이 되면 머리의 하중과 외부의 충격을 목이 그대로 전달받아 통증이 발생합니다.">
+            </TextView>
+
+            <Button
+                android:id="@+id/closePopup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="되돌아가기"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
