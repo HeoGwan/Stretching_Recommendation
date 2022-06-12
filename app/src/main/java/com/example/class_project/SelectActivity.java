@@ -12,26 +12,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
 public class SelectActivity extends Activity {
-
-    public enum Form {
-        LONG, SHORT, AVERAGE;
-
-        public static int getFormID(String id, String value) {
-            if (value.equals(AVERAGE.name())) {
-                return (id.equals("upperBody")) ? R.id.upperBodyAverage : R.id.lowerBodyAverage;
-            } else if (value.equals(SHORT.name())) {
-                return (id.equals("upperBody")) ? R.id.upperBodyShort : R.id.lowerBodyShort;
-            } else {
-                return (id.equals("upperBody")) ? R.id.upperBodyLong : R.id.lowerBodyLong;
-            }
-        }
-    }
 
     public enum Gender {
         MALE, FEMALE;
@@ -89,12 +76,10 @@ public class SelectActivity extends Activity {
 
     Gender gender;
     Float height, weight;
-    double bmi, broca;
+    float bmi;
     Neck neck;
     Shoulder shoulder;
     Back back;
-
-    Form upperBody, lowerBody;
 
     ImageView showForm;
     ImageView[] infos = new ImageView[3];
@@ -124,34 +109,6 @@ public class SelectActivity extends Activity {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
 
-    public void ShowForm() {
-        if (upperBody == Form.LONG) {
-            if (lowerBody == Form.LONG) {
-                showForm.setImageResource(R.drawable.long_long);
-            } else if (lowerBody == Form.SHORT) {
-
-            } else if (lowerBody == Form.AVERAGE) {
-
-            }
-        } else if (upperBody == Form.SHORT) {
-            if (lowerBody == Form.LONG) {
-
-            } else if (lowerBody == Form.SHORT) {
-
-            } else if (lowerBody == Form.AVERAGE) {
-
-            }
-        } else if (upperBody == Form.AVERAGE) {
-            if (lowerBody == Form.LONG) {
-
-            } else if (lowerBody == Form.SHORT) {
-
-            } else if (lowerBody == Form.AVERAGE) {
-                showForm.setImageResource(R.drawable.avg_avg);
-            }
-        }
-    }
-
     public void setPrevData() {
         // 데이터 가져오기
         String savedKey;
@@ -171,20 +128,6 @@ public class SelectActivity extends Activity {
                 case "gender":
                     selectGender.check(Gender.getGenderID(savedValue));
                     break;
-                case "upperBody":
-                    try {
-                        selectUpperBody.check(Form.getFormID(savedKey, savedValue));
-                    } catch (Exception e) {
-                        Log.d("setPrevData(upperBody): ", e.toString());
-                    }
-                    break;
-                case "lowerBody":
-                    try {
-                        selectLowerBody.check(Form.getFormID(savedKey, savedValue));
-                    } catch (Exception e) {
-                        Log.d("setPrevData(lowerBody): ", e.toString());
-                    }
-                    break;
                 case "neck":
                     selectNeck.check(Neck.getNeckID(savedValue));
                     break;
@@ -198,7 +141,6 @@ public class SelectActivity extends Activity {
                     Log.d("setPrevData", savedKey + ' ' + savedValue);
             }
         }
-        ShowForm();
     }
 
     public void getSelectedData() {
@@ -219,31 +161,6 @@ public class SelectActivity extends Activity {
         } catch (Exception e) {
             weight = 0.0f;
             height = 0.0f;
-        }
-
-        // 상체, 하제 가져오기
-        switch(selectUpperBody.getCheckedRadioButtonId()) {
-            case R.id.upperBodyAverage:
-                upperBody = Form.AVERAGE;
-                break;
-            case R.id.upperBodyShort:
-                upperBody = Form.SHORT;
-                break;
-            case R.id.upperBodyLong:
-                upperBody = Form.LONG;
-                break;
-        }
-
-        switch(selectLowerBody.getCheckedRadioButtonId()) {
-            case R.id.lowerBodyAverage:
-                lowerBody = Form.AVERAGE;
-                break;
-            case R.id.lowerBodyShort:
-                lowerBody = Form.SHORT;
-                break;
-            case R.id.lowerBodyLong:
-                lowerBody = Form.LONG;
-                break;
         }
 
         // 체형 가져오기
@@ -290,19 +207,22 @@ public class SelectActivity extends Activity {
         setContentView(R.layout.activity_select);
         setTitle("스트레칭 추천");
 
-        showForm = (ImageView) findViewById(R.id.showForm);
-
         btnOK = (Button) findViewById(R.id.btnOK);
 
         getWeight = (EditText) findViewById(R.id.weight);
         getHeight = (EditText) findViewById(R.id.height);
 
-        selectUpperBody = (RadioGroup) findViewById(R.id.selectUpperBody);
-        selectLowerBody = (RadioGroup) findViewById(R.id.selectLowerBody);
         selectGender = (RadioGroup) findViewById(R.id.gender);
         selectNeck = (RadioGroup) findViewById(R.id.selectNeck);
         selectShoulder = (RadioGroup) findViewById(R.id.selectShoulder);
         selectBack = (RadioGroup) findViewById(R.id.selectBack);
+
+        TextView goBack = (TextView) findViewById(R.id.goBack);
+
+        goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { finish(); }
+        });
 
         for(int i = 0; i < infoIDs.length; ++i) {
             int index = i;
@@ -347,48 +267,6 @@ public class SelectActivity extends Activity {
         }
         getSelectedData();
 
-//        editor.clear();
-//        editor.commit();
-
-        selectUpperBody.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch(radioGroup.getCheckedRadioButtonId()) {
-                    case R.id.upperBodyLong:
-                        upperBody = Form.LONG;
-                        break;
-                    case R.id.upperBodyShort:
-                        upperBody = Form.SHORT;
-                        break;
-                    case R.id.upperBodyAverage:
-                        upperBody = Form.AVERAGE;
-                        break;
-                }
-
-                ShowForm();
-            }
-        });
-
-
-        selectLowerBody.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                switch(radioGroup.getCheckedRadioButtonId()) {
-                    case R.id.lowerBodyLong:
-                        lowerBody = Form.LONG;
-                        break;
-                    case R.id.lowerBodyShort:
-                        lowerBody = Form.SHORT;
-                        break;
-                    case R.id.lowerBodyAverage:
-                        lowerBody = Form.AVERAGE;
-                        break;
-                }
-
-                ShowForm();
-            }
-        });
-
 
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -406,38 +284,24 @@ public class SelectActivity extends Activity {
                 // 비만도 계산
                 // bmi
                 /*
-                    비만도(%)= 표준 체중 대비 백분율(%) = 측정 체중/표준 체중 × 100
-                        표준체중 계산 방법
-                        - 남성: 키(m) × 키(m) × 22
-                        - 여성: 키(m) × 키(m) × 21
-                 */
-                Float standardWeight = null;
-                if (gender == Gender.MALE) {
-                    standardWeight = height * height * 22;
-                } else if (gender == Gender.FEMALE) {
-                    standardWeight = height * height * 21;
-                }
+                    비만 기준
+                    저체중        18.5 미만
+                    정상체중      18.5이상 23미만
+                    과체중        23이상 25미만
+                    비만          25이상
+                        경  도    25이상 30미만
+                        중정도    30이상 35미만
+                        고  도    35 이상
+                */
+                float proceedHeight = height / 100;
 
                 try {
-                    bmi = weight / standardWeight * 100;
+                    bmi = weight / (proceedHeight * proceedHeight);
+                    bmi = (float) (Math.round(bmi * 100) / 100.0);
+                    Log.d("bmi: ", Float.toString(bmi));
                 } catch (Exception e) {
                     Log.d("bmi: ", e.toString());
                     bmi = 0.0f;
-                }
-
-                // broca
-                /*
-                    신장별 Broca 공식의 표준체중계산법
-                        160 cm 이상 (신장 cm-100 ) × 0.9
-                        160- 150 cm (신장 cm-150) ÷2 + 50
-                        150 이하 (신장 cm-100 ) × 1.0
-                 */
-                if (height >= 160) {
-                    broca = (height - 100) * 0.9;
-                } else if (160 > height && height > 150) {
-                    broca = (height - 150) / 2 + 50;
-                } else {
-                    broca = (height - 100) * 1.0;
                 }
 
                 // 비만도와 체형을 기반으로 스트레칭 추천
@@ -447,8 +311,6 @@ public class SelectActivity extends Activity {
                 editor.putFloat("weight", weight);
                 editor.putFloat("height", height);
                 editor.putString("gender", gender.name());
-                editor.putString("upperBody", upperBody.name());
-                editor.putString("lowerBody", lowerBody.name());
                 editor.putString("neck", neck.name());
                 editor.putString("shoulder", shoulder.name());
                 editor.putString("back", back.name());
@@ -456,7 +318,16 @@ public class SelectActivity extends Activity {
 
 
                 // 결과 화면으로 이동
+                /*
+                    결과 화면으로 넘기는 데이터
+                    비만도, 상하체 길이, 목, 어깨, 허리
+                 */
                 Intent result = new Intent(getApplicationContext(), ResultActivity.class);
+                result.putExtra("bmi", bmi);
+                result.putExtra("neck", neck.name());
+                result.putExtra("shoulder", shoulder.name());
+                result.putExtra("back", back.name());
+
                 startActivity(result);
             }
         });

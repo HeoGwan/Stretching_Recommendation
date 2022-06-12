@@ -12,15 +12,31 @@
         android:paddingTop="20dp"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="추천 스트레칭"
-            android:textSize="20dp"
-            android:layout_gravity="center"
-            android:fontFamily="@font/binggrae_bold"
-            android:textColor="@color/black"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/goBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/arrow_back"
+                android:backgroundTint="@color/black"
+                android:textColor="@color/black"
+                android:textSize="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="추천 스트레칭"
+                android:textSize="20dp"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/binggrae_bold"
+                android:textColor="@color/black"/>
+
+        </RelativeLayout>
 
         <!-- 구분선 -->
         <TextView
@@ -32,76 +48,331 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="10dp">
 
-            <RelativeLayout
+            <LinearLayout
+                android:id="@+id/showResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingTop="10dp">
 
-                <TextView
-                    android:id="@+id/neckStretchingInfo"
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="목"/>
 
-                <ImageView
-                    android:id="@+id/neckStretchingImage"
+<!--                둔근-->
+                <FrameLayout
+                    android:id="@+id/glutesImage"
                     android:layout_width="330dp"
                     android:layout_height="200dp"
-                    android:layout_below="@+id/neckStretchingInfo"
-                    android:layout_marginBottom="10dp"
-                    android:layout_toRightOf="@+id/shoulderStretchingInfo"
-                    android:background="@drawable/image_background" />
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/image_background"
+                    android:visibility="gone">
 
-                <TextView
-                    android:id="@+id/shoulderStretchingInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/neckStretchingImage"
-                    android:layout_alignLeft="@+id/neckStretchingInfo"
-                    android:text="어깨" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="1dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/glutes"/>
 
-                <ImageView
-                    android:id="@+id/shoulderStretchingImage"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="둔근\n스트레칭"
+                        android:fontFamily="@font/binggrae"
+                        android:textAlignment="center"
+                        android:layout_gravity="top|right"
+                        android:paddingTop="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"/>
+
+                </FrameLayout>
+
+
+<!--                햄스트링-->
+                <FrameLayout
+                    android:id="@+id/hamstringImage"
                     android:layout_width="330dp"
                     android:layout_height="200dp"
-                    android:layout_below="@+id/shoulderStretchingInfo"
-                    android:layout_marginBottom="10dp"
-                    android:layout_toRightOf="@+id/shoulderStretchingInfo"
-                    android:background="@drawable/image_background" />
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/image_background"
+                    android:visibility="gone">
 
-                <TextView
-                    android:id="@+id/backStretchingInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/shoulderStretchingImage"
-                    android:layout_alignLeft="@id/shoulderStretchingInfo"
-                    android:text="허리" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="1dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/hamstring"/>
 
-                <ImageView
-                    android:id="@+id/backStretchingImage"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="햄스트링\n스트레칭"
+                        android:fontFamily="@font/binggrae"
+                        android:textAlignment="center"
+                        android:layout_gravity="top|right"
+                        android:paddingTop="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"/>
+
+                </FrameLayout>
+
+
+<!--                장요근-->
+                <FrameLayout
+                    android:id="@+id/iliopsoasImage"
                     android:layout_width="330dp"
                     android:layout_height="200dp"
-                    android:layout_below="@+id/backStretchingInfo"
-                    android:layout_marginBottom="10dp"
-                    android:layout_toRightOf="@id/backStretchingInfo"
-                    android:background="@drawable/image_background" />
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/image_background"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="1dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/iliopsoas"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="장요근\n스트레칭"
+                        android:fontFamily="@font/binggrae"
+                        android:textAlignment="center"
+                        android:layout_gravity="top|right"
+                        android:paddingTop="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"/>
+
+                </FrameLayout>
+
+
+<!--                극하근-->
+                <FrameLayout
+                    android:id="@+id/infraspinatusImage"
+                    android:layout_width="330dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/image_background"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="1dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/infraspinatus"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="극하근\n스트레칭"
+                        android:fontFamily="@font/binggrae"
+                        android:textAlignment="center"
+                        android:layout_gravity="top|right"
+                        android:paddingTop="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"/>
+
+                </FrameLayout>
+
+
+<!--                견갑거근-->
+                <FrameLayout
+                    android:id="@+id/levatorScapulaImage"
+                    android:layout_width="330dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/image_background"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="1dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/levator_scapula"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="견갑거근\n스트레칭"
+                        android:fontFamily="@font/binggrae"
+                        android:textAlignment="center"
+                        android:layout_gravity="top|right"
+                        android:paddingTop="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"/>
+
+                </FrameLayout>
+
+
+<!--                소흉근-->
+                <FrameLayout
+                    android:id="@+id/pectoralisMinorImage"
+                    android:layout_width="330dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/image_background"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="1dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/pectoralis_minor"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="소흉근\n스트레칭"
+                        android:fontFamily="@font/binggrae"
+                        android:textAlignment="center"
+                        android:layout_gravity="top|right"
+                        android:paddingTop="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"/>
+
+                </FrameLayout>
+
+
+<!--                T레이즈-->
+                <FrameLayout
+                    android:id="@+id/tRaiseImage"
+                    android:layout_width="330dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/image_background"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="1dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/t_raise"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="T레이즈\n스트레칭"
+                        android:fontFamily="@font/binggrae"
+                        android:textAlignment="center"
+                        android:layout_gravity="top|right"
+                        android:paddingTop="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"/>
+
+                </FrameLayout>
+
+
+<!--                월 슬라이드-->
+                <FrameLayout
+                    android:id="@+id/wallSlideImage"
+                    android:layout_width="330dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/image_background"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="1dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/wall_slide"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="월 슬라이드\n스트레칭"
+                        android:fontFamily="@font/binggrae"
+                        android:textAlignment="center"
+                        android:layout_gravity="top|right"
+                        android:paddingTop="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"/>
+
+                </FrameLayout>
+
+
+<!--                Y 레이즈-->
+                <FrameLayout
+                    android:id="@+id/yRaiseImage"
+                    android:layout_width="330dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/image_background"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="1dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/y_raise"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Y레이즈\n스트레칭"
+                        android:fontFamily="@font/binggrae"
+                        android:textAlignment="center"
+                        android:layout_gravity="top|right"
+                        android:paddingTop="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"/>
+
+                </FrameLayout>
+
+
+
+                <!-- 구분선 -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1.4dp"
+                    android:background="@color/darker_grey"
+                    android:layout_marginHorizontal="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+<!--                    추가 정보 출력-->
+
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/btnBack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/backStretchingImage"
-                    android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/button_design"
-                    android:text="처음으로" />
+                    android:text="되돌아가기" />
 
-            </RelativeLayout>
+            </LinearLayout>
 
         </ScrollView>
 

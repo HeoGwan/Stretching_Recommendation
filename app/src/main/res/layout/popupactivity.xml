@@ -3,13 +3,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:text="도움말">
-    </TextView>
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/closePopup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="도움말"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+        <!-- 구분선 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1.4dp"
+            android:background="@color/darker_grey"/>
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,7 +55,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="50dp"
+                android:textSize="30dp"
                 android:text="정상"
                 android:textColor="@color/black"
                 android:layout_gravity="center_horizontal"
@@ -50,7 +82,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="50dp"
+                android:textSize="30dp"
                 android:text="일자목"
                 android:textColor="@color/black"
                 android:layout_gravity="center_horizontal"
@@ -76,7 +108,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="50dp"
+                android:textSize="30dp"
                 android:text="거북목"
                 android:textColor="@color/black"
                 android:layout_gravity="center_horizontal"
@@ -98,13 +130,6 @@
                 android:textColor="@color/black"
                 android:text="일자목에서 그보다 더 앞으로 돌출된 형태를 거북목이라 합니다. 거북목이 되면 머리의 하중과 외부의 충격을 목이 그대로 전달받아 통증이 발생합니다.">
             </TextView>
-
-            <Button
-                android:id="@+id/closePopup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="되돌아가기"/>
 
         </LinearLayout>
 

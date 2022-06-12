@@ -3,13 +3,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:text="도움말">
-    </TextView>
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/closePopup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="도움말"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+        <!-- 구분선 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1.4dp"
+            android:background="@color/darker_grey"/>
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,7 +55,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="50dp"
+                android:textSize="30dp"
                 android:textColor="@color/black"
                 android:text="정상"
                 android:layout_gravity="center_horizontal"
@@ -50,7 +82,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="50dp"
+                android:textSize="30dp"
                 android:text="전방경사"
                 android:textColor="@color/black"
                 android:layout_gravity="center_horizontal"
@@ -76,7 +108,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="50dp"
+                android:textSize="30dp"
                 android:text="후방경사"
                 android:textColor="@color/black"
                 android:layout_gravity="center_horizontal"
@@ -98,13 +130,6 @@
                 android:textColor="@color/black"
                 android:text="골반이 뒤쪽으로 말려서 허리가 구부정해지고 엉덩이가 쳐져 보이게 됩니다. 이는 척추에 부담을 주고 목과 등에 뻣뻣함을 과중시키며 무릎이 뒤로 빠지는 증상을 유발함으로써 외관상 체형 비대칭을 불러옵니다">
             </TextView>
-
-            <Button
-                android:id="@+id/closePopup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="되돌아가기"/>
 
         </LinearLayout>
 
