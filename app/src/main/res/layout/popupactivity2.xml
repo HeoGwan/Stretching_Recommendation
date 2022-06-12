@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="도움말">
+    </TextView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50dp"
+                android:textColor="@color/black"
+                android:text="정상"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+            </TextView>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:src="@drawable/normal_pelvic_tilt_pic"
+            android:layout_gravity="center">
+        </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:text="정상적인 척추는 옆에서 보았을 때 앞뒤로 곡선을 이룬 S자 형태를 이뤄야한다.">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50dp"
+                android:text="전방경사"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+            </TextView>
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:src="@drawable/anterior_pelvic_tilt_pic"
+                android:layout_gravity="center">
+            </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:text="골반이 앞으로 회전했다는 뜻을 가진 전문용어로, 골반이 앞으로 회전되면 엉덩이가 튀어나오고, 허리가 꺾이며, 배가 볼록하게 나오게 됩니다. 이러한 특징 때문에 골반 전방경사가 있으면 오리 궁둥이처럼 보이게 되는 것입니다.">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50dp"
+                android:text="후방경사"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+            </TextView>
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:src="@drawable/posterior_pelvic_tilt_pic"
+                android:layout_gravity="center">
+            </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:text="골반이 뒤쪽으로 말려서 허리가 구부정해지고 엉덩이가 쳐져 보이게 됩니다. 이는 척추에 부담을 주고 목과 등에 뻣뻣함을 과중시키며 무릎이 뒤로 빠지는 증상을 유발함으로써 외관상 체형 비대칭을 불러옵니다">
+            </TextView>
+
+            <Button
+                android:id="@+id/closePopup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="되돌아가기"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

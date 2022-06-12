@@ -97,6 +97,7 @@ public class SelectActivity extends Activity {
     Form upperBody, lowerBody;
 
     ImageView showForm;
+    ImageView[] infos = new ImageView[3];
 
     Button btnOK;
 
@@ -115,6 +116,10 @@ public class SelectActivity extends Activity {
     Integer[] RdoBtnInfoIDs = {R.id.normalNeckInfo, R.id.straightNeckInfo, R.id.forwardNeckInfo,
             R.id.flatShoulderInfo, R.id.normalShoulderInfo, R.id.slopeShoulderInfo,
             R.id.normalPelvicTiltInfo, R.id.anteriorPelvicTiltInfo, R.id.posteriorPelvicTiltInfo};
+
+    Integer[] infoIDs = {R.id.neckInfo, R.id.shoulderInfo, R.id.backInfo};
+
+    Class[] infoActivity = {popupactivity.class, popupactivity1.class, popupactivity2.class};
 
     SharedPreferences pref;
     SharedPreferences.Editor editor;
@@ -298,6 +303,19 @@ public class SelectActivity extends Activity {
         selectNeck = (RadioGroup) findViewById(R.id.selectNeck);
         selectShoulder = (RadioGroup) findViewById(R.id.selectShoulder);
         selectBack = (RadioGroup) findViewById(R.id.selectBack);
+
+        for(int i = 0; i < infoIDs.length; ++i) {
+            int index = i;
+            infos[index] = (ImageView) findViewById(infoIDs[index]);
+
+            infos[index].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent popup = new Intent(getApplicationContext(), infoActivity[index]);
+                    startActivity(popup);
+                }
+            });
+        }
 
         // 목, 어깨, 허리정보 초기화
         for (int i = 0; i < RdoBtnIDs.length; ++i) {

@@ -293,6 +293,41 @@
                     android:layout_alignLeft="@+id/noticeSelectNeck"
                     android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/neckInfo"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/question_mark"></ImageView>
+
+                <!--                정상-->
+                <RadioButton
+                    android:id="@+id/normalNeck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_marginRight="-20dp"
+                    android:layout_marginTop="-10dp"
+                    android:checked="true"/>
+                <LinearLayout
+                    android:id="@+id/normalNeckInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/normal_neck_pic"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:layout_marginTop="-10dp"
+                        android:text="정상"/>
+                </LinearLayout>
                     <!--                정상-->
                     <RadioButton
                         android:id="@+id/normalNeck"
@@ -420,6 +455,41 @@
                     android:layout_alignLeft="@+id/noticeSelectShoulder"
                     android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/shoulderInfo"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/question_mark"></ImageView>
+
+                <!--                상견-->
+                <RadioButton
+                    android:id="@+id/flatShoulder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="-20dp"
+                    android:checked="true"/>
+                <LinearLayout
+                    android:id="@+id/flatShoulderInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/flat_shoulder_pic"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:layout_marginTop="-20dp"
+                        android:text="상견"/>
+                </LinearLayout>
                     <!--                상견-->
                     <RadioButton
                         android:id="@+id/flatShoulder"
@@ -546,6 +616,41 @@
                     android:layout_alignLeft="@+id/noticeSelectBack"
                     android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/backInfo"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="15dp"
+                    android:src="@drawable/question_mark"></ImageView>
+
+                <!--                정상-->
+                <RadioButton
+                    android:id="@+id/normalPelvicTilt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:layout_marginTop="-10dp"
+                    android:layout_marginRight="-20dp"
+                    android:checked="true"/>
+                <LinearLayout
+                    android:id="@+id/normalPelvicTiltInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/normal_pelvic_tilt_pic"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#000"
+                        android:layout_marginTop="5dp"
+                        android:text="정상"/>
+                </LinearLayout>
                     <!--                정상-->
                     <RadioButton
                         android:id="@+id/normalPelvicTilt"
