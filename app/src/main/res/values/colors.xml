@@ -11,4 +11,5 @@
     <color name="darker_gray">#aaa</color>
     <color name="lighter_grey">#ddd</color>
     <color name="darker_grey">#aaa</color>
+    <color name="blue">#00f</color>
 </resources>

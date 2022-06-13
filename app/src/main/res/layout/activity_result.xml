@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/arrow_back"
                 android:backgroundTint="@color/black"
+                android:layout_centerVertical="true"
                 android:textColor="@color/black"
                 android:textSize="20dp"/>
 
@@ -45,6 +46,15 @@
             android:background="@color/darker_grey"
             android:layout_marginHorizontal="20dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이미지 클릭 시 해당 영상으로 이동됩니다."
+            android:paddingRight="20dp"
+            android:textSize="12dp"
+            android:textColor="@color/darker_grey"
+            android:layout_gravity="top|right"/>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,7 +66,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingTop="10dp">
-
 
 <!--                둔근-->
                 <FrameLayout
@@ -354,21 +363,103 @@
                     android:background="@color/darker_grey"
                     android:layout_marginHorizontal="20dp"/>
 
-                <LinearLayout
+                <!--추가 정보 출력-->
+                <TableLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="20dp">
 
-<!--                    추가 정보 출력-->
+                    <TableRow>
+                        <TextView
+                            android:layout_gravity="left"
+                            android:text="bmi:"
+                            android:textSize="24dp"/>
+                        <TextView
+                            android:layout_gravity="right"
+                            android:id="@+id/showBMI"
+                            android:text="22.84"
+                            android:textSize="24dp"/>
+                    </TableRow>
 
-                </LinearLayout>
+                    <TableRow>
+                        <TextView
+                            android:layout_gravity="left"
+                            android:text="체중:"
+                            android:textSize="24dp"/>
+                        <TextView
+                            android:layout_gravity="right"
+                            android:id="@+id/showBody"
+                            android:text="저체중"
+                            android:textSize="24dp"/>
+                    </TableRow>
+
+                    <!-- 구분선 -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1.4dp"
+                        android:background="@color/darker_grey"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/underweight"
+                            android:layout_gravity="left"
+                            android:text="저체중"/>
+
+                        <TextView
+                            android:id="@+id/underweightValue"
+                            android:layout_gravity="right"
+                            android:text="18.5미만"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/normalweight"
+                            android:layout_gravity="left"
+                            android:text="정상체중"/>
+
+                        <TextView
+                            android:id="@+id/normalweightValue"
+                            android:layout_gravity="right"
+                            android:paddingLeft="10dp"
+                            android:text="18.5이상 23미만"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/overweight"
+                            android:layout_gravity="left"
+                            android:text="과체중"/>
+
+                        <TextView
+                            android:id="@+id/overweightValue"
+                            android:layout_gravity="right"
+                            android:text="23이상 25미만"/>
+                    </TableRow>
+
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/obese"
+                            android:layout_gravity="left"
+                            android:text="비만"/>
+
+                        <TextView
+                            android:id="@+id/obeseValue"
+                            android:layout_gravity="right"
+                            android:text="25이상"/>
+                    </TableRow>
+
+                </TableLayout>
 
                 <Button
                     android:id="@+id/btnBack"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/button_design"
                     android:text="되돌아가기" />
 
