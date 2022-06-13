@@ -75,7 +75,7 @@
                 android:padding="20dp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:text="정상적인 쇄골위 위치를 보통  5도라고 말한다. 이 위치보다 5도 더 높은 체형을 상견이라한다.">
+                android:text="거울을 보고 쇄골이 수직 기준으로 각도가 5도 보다 더 올라가 있다면 상견이다.">
             </TextView>
 
             <TextView
@@ -101,7 +101,7 @@
                 android:padding="20dp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:text="보통 정상적인 쇄골의 위치를 5도라고 한다.">
+                android:text="거울을 보고 5도 정도만 올라가 있다면 중견이다.">
             </TextView>
 
             <TextView
@@ -127,7 +127,7 @@
                 android:padding="20dp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:text="어깨 상견 중견 하견 기준 정상 위치보다 5도 더 낮은 위치를 하견이라고 한다.  ">
+                android:text="거울을 보고 수직에 가깝거나 더 내려가 있다면 하견이다.">
             </TextView>
 
         </LinearLayout>

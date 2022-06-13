@@ -75,7 +75,7 @@
                 android:padding="20dp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:text="정상적인 척추는 옆에서 보았을 때 앞뒤로 곡선을 이룬 S자 형태를 이뤄야한다.">
+                android:text="벽에 뒤통수와 발 뒤꿈치를 붙이고 허리 뒤쪽과 벽에 있는 공간 사이에 손을 넣어본다.\n정상허리라면 손 하나 정도가 들어간다.">
 
             </TextView>
 
@@ -102,7 +102,7 @@
                 android:padding="20dp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:text="골반이 앞으로 회전했다는 뜻을 가진 전문용어로, 골반이 앞으로 회전되면 엉덩이가 튀어나오고, 허리가 꺾이며, 배가 볼록하게 나오게 됩니다. 이러한 특징 때문에 골반 전방경사가 있으면 오리 궁둥이처럼 보이게 되는 것입니다.">
+                android:text="벽에 뒤통수와 발 뒤꿈치를 붙이고 허리 뒤쪽과 벽에 있는 공간 사이에 손을 넣어본다.\n손이 2개 이상 들어가면 골반전방경사를 의심한다">
             </TextView>
 
             <TextView
@@ -128,7 +128,7 @@
                 android:padding="20dp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:text="골반이 뒤쪽으로 말려서 허리가 구부정해지고 엉덩이가 쳐져 보이게 됩니다. 이는 척추에 부담을 주고 목과 등에 뻣뻣함을 과중시키며 무릎이 뒤로 빠지는 증상을 유발함으로써 외관상 체형 비대칭을 불러옵니다">
+                android:text="벽에 뒤통수와 발 뒤꿈치를 붙이고 허리 뒤쪽과 벽에 있는 공간 사이에 손을 넣어본다.\n손이 아예 들어가지 않는 경우 골반 후방경사를 의심한다.">
             </TextView>
 
         </LinearLayout>

@@ -75,7 +75,7 @@
                 android:padding="20dp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:text="정상적인 목뼈의 형태는 C 자 모양의 커브로 되어있다.">
+                android:text="정상적인 목의 형태는 C 자 모양의 커브로 되어있다.">
 
             </TextView>
 
@@ -102,7 +102,7 @@
                 android:padding="20dp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:text="목 척추가 정상적인 배열을 벗어나 일자가 된것을 일자목       증후군 이라고 한다.">
+                android:text="목 뒷부분, 승모근의 통증이 있을 수 있고,  편평등, 익상견갑이 있을 수 있다.">
             </TextView>
 
             <TextView
@@ -128,7 +128,7 @@
                 android:padding="20dp"
                 android:textSize="15dp"
                 android:textColor="@color/black"
-                android:text="일자목에서 그보다 더 앞으로 돌출된 형태를 거북목이라 합니다. 거북목이 되면 머리의 하중과 외부의 충격을 목이 그대로 전달받아 통증이 발생합니다.">
+                android:text="옆에서 보면 귀가 어깨보다 나와있으며 어깨는 앞쪽으로 굽어있고, 대부분 등이 굽는 자세로 인해 발생하고 등이 굽으면서 허리는 전방경사가 되는 보상작용이 생길 수 있다.">
             </TextView>
 
         </LinearLayout>
