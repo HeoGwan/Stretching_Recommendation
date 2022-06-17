@@ -24,6 +24,7 @@
         <activity android:name=".popupactivity"/>
         <activity android:name=".popupactivity1"/>
         <activity android:name=".popupactivity2"/>
+        <activity android:name=".RecordWeightActivity"/>
     </application>
 
 </manifest>

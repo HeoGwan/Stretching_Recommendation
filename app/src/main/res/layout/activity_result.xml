@@ -34,8 +34,21 @@
                 android:text="추천 스트레칭"
                 android:textSize="20dp"
                 android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
                 android:fontFamily="@font/binggrae_bold"
                 android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/recordedWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/binggrae_bold"
+                android:textSize="12dp"
+                android:text="체중 기록 보기"
+                android:textColor="@color/black" />
 
         </RelativeLayout>
 
@@ -401,6 +414,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="1.4dp"
                         android:background="@color/darker_grey"
+                        android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"/>
 
                     <TableRow>
@@ -454,14 +468,32 @@
 
                 </TableLayout>
 
-                <Button
-                    android:id="@+id/btnBack"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginBottom="20dp"
-                    android:background="@drawable/button_design"
-                    android:text="되돌아가기" />
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/recordBody"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/button_design"
+                        android:text="체중 기록"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/btnBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/button_design"
+                        android:text="되돌아가기" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

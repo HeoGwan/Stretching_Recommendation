@@ -14,9 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class SelectActivity extends Activity {
 
@@ -76,20 +74,17 @@ public class SelectActivity extends Activity {
 
     Gender gender;
     Float height, weight;
-    float bmi;
     Neck neck;
     Shoulder shoulder;
     Back back;
 
-    ImageView showForm;
     ImageView[] infos = new ImageView[3];
 
     Button btnOK;
 
     EditText getWeight, getHeight;
 
-    RadioGroup selectUpperBody, selectLowerBody, selectGender,
-            selectNeck, selectShoulder, selectBack;
+    RadioGroup selectGender, selectNeck, selectShoulder, selectBack;
 
     RadioButton[] RdoBtns = new RadioButton[9];
     LinearLayout[] RdoBtnInfos = new LinearLayout[9];
@@ -293,19 +288,6 @@ public class SelectActivity extends Activity {
                         중정도    30이상 35미만
                         고  도    35 이상
                 */
-                float proceedHeight = height / 100;
-
-                try {
-                    bmi = weight / (proceedHeight * proceedHeight);
-                    bmi = (float) (Math.round(bmi * 100) / 100.0);
-                    Log.d("bmi: ", Float.toString(bmi));
-                } catch (Exception e) {
-                    Log.d("bmi: ", e.toString());
-                    bmi = 0.0f;
-                }
-
-                // 비만도와 체형을 기반으로 스트레칭 추천
-
 
                 // 입력한 데이터 저장
                 editor.putFloat("weight", weight);
@@ -316,14 +298,14 @@ public class SelectActivity extends Activity {
                 editor.putString("back", back.name());
                 editor.commit();
 
-
                 // 결과 화면으로 이동
                 /*
                     결과 화면으로 넘기는 데이터
                     비만도, 상하체 길이, 목, 어깨, 허리
                  */
                 Intent result = new Intent(getApplicationContext(), ResultActivity.class);
-                result.putExtra("bmi", bmi);
+                result.putExtra("weight", weight);
+                result.putExtra("height", height);
                 result.putExtra("neck", neck.name());
                 result.putExtra("shoulder", shoulder.name());
                 result.putExtra("back", back.name());

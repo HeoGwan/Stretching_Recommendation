@@ -2,6 +2,7 @@ package com.example.class_project;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,17 +10,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.xml.transform.Result;
 
 public class ResultActivity extends Activity {
     class Stretching {
@@ -142,14 +138,12 @@ public class ResultActivity extends Activity {
         }
     }
 
-    Button btnBack;
     TextView showBMI, showBody;
     TextView underweight, normalweight, overweight, obese,
             underweightValue, normalweightValue, overweightValue, obeseValue;
 
-    Float bmi;
-    String weight, upperBody, lowerBody, neck, shoulder, back;
-
+    Float height, weight, bmi;
+    String showWeight, neck, shoulder, back;
 
     Stretching stretching;
 
@@ -160,9 +154,9 @@ public class ResultActivity extends Activity {
         setTitle("추천 스트레칭");
 
         stretching = new Stretching();
+
         showBMI = (TextView) findViewById(R.id.showBMI);
         showBody = (TextView) findViewById(R.id.showBody);
-        btnBack = (Button) findViewById(R.id.btnBack);
         underweight = (TextView) findViewById(R.id.underweight);
         normalweight = (TextView) findViewById(R.id.normalweight);
         overweight = (TextView) findViewById(R.id.overweight);
@@ -172,18 +166,22 @@ public class ResultActivity extends Activity {
         overweightValue = (TextView) findViewById(R.id.overweightValue);
         obeseValue = (TextView) findViewById(R.id.obeseValue);
 
-
-        // 뒤로가기 버튼 초기화
-        TextView goBack = (TextView) findViewById(R.id.goBack);
-        goBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { finish(); }
-        });
-
-
         // 선택된 값 가져오기
         Intent intent = getIntent();
-        bmi = intent.getFloatExtra("bmi", 0.0f);
+        height = intent.getFloatExtra("height", 0.0f);
+        weight = intent.getFloatExtra("weight", 0.0f);
+
+        try {
+            float proceedHeight = height / 100;
+
+            bmi = weight / (proceedHeight * proceedHeight);
+            bmi = (float) (Math.round(bmi * 100) / 100.0);
+            Log.d("bmi: ", Float.toString(bmi));
+        } catch (Exception e) {
+            Log.d("bmi: ", e.toString());
+            bmi = 0.0f;
+        }
+
         if (bmi == 0.0f) {
             Log.d("getBmi: ", "비만도를 가져오지 못했습니다.");
         }
@@ -200,31 +198,30 @@ public class ResultActivity extends Activity {
         showBMI.setText(bmi.toString());
         if (bmi < 18.5) {
             // 저체중
-            weight = "저체중";
+            showWeight = "저체중";
             showBMI.setTextColor(Color.BLUE);
             underweight.setTextColor(Color.RED);
             underweightValue.setTextColor(Color.RED);
         } else if (18.5 <= bmi && bmi < 23) {
             // 정상
-            weight = "정상체중";
+            showWeight = "정상체중";
             showBMI.setTextColor(Color.BLACK);
             normalweight.setTextColor(Color.RED);
             normalweightValue.setTextColor(Color.RED);
         } else if (23 <= bmi && bmi < 25) {
             // 과체중
-            weight = "과체중";
+            showWeight = "과체중";
             showBMI.setTextColor(Color.YELLOW);
             overweight.setTextColor(Color.RED);
             overweightValue.setTextColor(Color.RED);
         } else {
             // 비만
-            weight = "비만";
+            showWeight = "비만";
             showBMI.setTextColor(Color.RED);
             obese.setTextColor(Color.RED);
             obeseValue.setTextColor(Color.RED);
         }
-        showBody.setText(weight);
-
+        showBody.setText(showWeight);
 
         try {
             neck = intent.getStringExtra("neck");
@@ -239,12 +236,72 @@ public class ResultActivity extends Activity {
         stretching.showStretching(neck, shoulder, back);
 
 
-        // 되돌아가기 버튼 초기화
+        // 뒤로가기 버튼 초기화
+        TextView goBack = (TextView) findViewById(R.id.goBack);
+        goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { finish(); }
+        });
 
+        // 되돌아가기 버튼 초기화
+        Button btnBack = (Button) findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
+            public void onClick(View view) { finish(); }
+        });
+
+        // 체중 기록 확인
+        TextView recordedWeight = (TextView) findViewById(R.id.recordedWeight);
+        recordedWeight.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
-                finish();
+                Intent recordWeight = new Intent(getApplicationContext(), RecordWeightActivity.class);
+                startActivity(recordWeight);
+            }
+        });
+
+        // 체중 기록 하기
+        Button recordBody = (Button) findViewById(R.id.recordBody);
+        recordBody.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences bmiRecord;
+                SharedPreferences.Editor editor;
+                Integer recordCount;
+
+                bmiRecord = getSharedPreferences("bmiRecord", MODE_PRIVATE);
+                editor = bmiRecord.edit();
+
+                recordCount = bmiRecord.getInt("recordCount", -1) + 1;
+
+                /*
+                    데이터: "yyyy:MM:dd#키#몸무게#bmi#체중"
+                */
+                try {
+                    String recordBMI = "";
+                    String split = "#";
+                    LocalDateTime now = LocalDateTime.now();
+                    String date = now.format(DateTimeFormatter.ofPattern("yyyy:MM:dd HH:mm:ss"));
+                    recordBMI += date;
+                    recordBMI += split;
+                    recordBMI += height.toString();
+                    recordBMI += split;
+                    recordBMI += weight.toString();
+                    recordBMI += split;
+                    recordBMI += bmi.toString();
+                    recordBMI += split;
+                    recordBMI += showWeight;
+
+                    editor.putString("recordBmi_" + recordCount.toString(), recordBMI);
+                    editor.putInt("recordCount", recordCount);
+                    editor.commit();
+
+                    Toast.makeText(getApplicationContext(), "체중을 기록하였습니다.", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Log.e("recordBody", e.toString());
+                    Toast.makeText(getApplicationContext(), "체중을 기록하지 못하였습니다.", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }
